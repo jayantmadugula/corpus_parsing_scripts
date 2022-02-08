@@ -4,5 +4,5 @@
         "chunksize": 1000
     },
     "database_path": "../databases/corpus_database.db",
-    "citysearch_path": "../datasets/absa/citysearch_corpus/files/"
+    "restaurantreviews_path": "../datasets/absa/restaurantreviews_corpus/files/"
 }
