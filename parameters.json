@@ -1,0 +1,8 @@
+{
+    "batch_processing": {
+        "num_processes": 4,
+        "chunksize": 1000
+    },
+    "database_path": "../databases/corpus_database.db",
+    "citysearch_path": "../datasets/absa/citysearch_corpus/files/"
+}
