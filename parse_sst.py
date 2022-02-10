@@ -6,6 +6,9 @@ parts of the SST dataset are parsed.
 This script will create a single table in a SQLite3 database called
 "sst_phrases". If another table exists in the database with the same name, running this script will replace the table.
 
+Additional sentiment labels are based on the cutoffs suggested in
+the dataset's README file.
+
 Citation: 
 Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank
 Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher Manning, Andrew Ng and Christopher Potts
@@ -42,6 +45,23 @@ def process_sst_data(datapath):
 
     return sst_data
 
+def calc_sst_sentiment_label(val) -> int:
+    '''
+    Labels negative sentiment as 0, neutral sentiment as 1, and positive sentiment as 2.
+    Thresholds are based on recommendation from dataset.
+    '''
+    if val <= 0.4: return 0
+    elif val <= 0.6: return 1
+    else: return 2
+
+def calc_sst_sentiment_exists_label(val) -> int:
+    '''
+    Labels no sentiment ("neutral sentiment") as 0, some sentiment (positive or negative) as 1.
+    Thresholds are based on recommendations from dataset.
+    '''
+    if val > 0.4 and val <= 0.6: return 0
+    else: return 1
+
 def save_phrases(df: pd.DataFrame, db_path: String):
     '''
     Saves the texts to a SQLite3 database.
@@ -60,6 +80,8 @@ if __name__ == '__main__':
     dataset_path = params['sst_path']
 
     sst_df = process_sst_data(dataset_path)
+    sst_df.loc[:, 'sentiment_three_labels'] = sst_df['sentiment_values'].apply(calc_sst_sentiment_label)
+    sst_df.loc[:, 'sentiment_exists_labels'] = sst_df['sentiment_values'].apply(calc_sst_sentiment_exists_label)
     save_phrases(sst_df, db_path)
     
     print(sst_df.shape)
