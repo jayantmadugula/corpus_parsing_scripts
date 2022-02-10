@@ -6,5 +6,6 @@
     "database_path": "../databases/corpus_database.db",
     "restaurantreviews_path": "../datasets/absa/restaurantreviews_corpus/files/",
     "semeval16_path": "../datasets/absa/ABSA16_Restaurants_Train_SB1_v2.xml",
-    "socc_path": "../datasets/absa/SOCC_globemail/raw/gnm_articles.csv"
+    "socc_path": "../datasets/absa/SOCC_globemail/raw/gnm_articles.csv",
+    "sst_path": "../datasets/sentiment/stanfordSentimentTreebank/"
 }
