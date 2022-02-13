@@ -7,7 +7,11 @@ Note: this script current only parses the raw "gnm_articles.csv" file.
 Creates a single table in a SQLite3 database called "socc_reviews".
 This script will replace an existing table with the same name.
 
-Citation for SOCC dataset: https://github.com/sfu-discourse-lab/SOCC
+Citation for SOCC dataset: 
+Kolhatkar, Varada, et al. "The SFU opinion and comments corpus: A corpus for the analysis of online news comments." Corpus Pragmatics 4.2 (2020): 155-190.
+APA
+
+More information: https://github.com/sfu-discourse-lab/SOCC
 '''
 
 import json

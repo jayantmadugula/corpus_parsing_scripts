@@ -11,7 +11,10 @@ index in the "semeval16_reviews".
 This script will overwrite existing tables in the database.
 No relationships are established between the tables.
 
-Citation: https://alt.qcri.org/semeval2016/task5/
+Citation:
+Pontiki, Maria, et al. "Semeval-2016 task 5: Aspect based sentiment analysis." International workshop on semantic evaluation. 2016.
+
+More information:  https://alt.qcri.org/semeval2016/task5/
 '''
 
 from tokenize import String
